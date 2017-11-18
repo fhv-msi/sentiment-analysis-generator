@@ -1,4 +1,7 @@
-jobs:
-  include:
-    - stage: build and deploy generator
-      script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn org.eclipse.acceleo:org.eclipse.acceleo.maven:acceleo-compile deploy"
+language: java
+
+install:
+  - cp .travis.settings.xml $HOME/.m2/settings.xml
+
+script:
+  - mvn org.eclipse.acceleo:org.eclipse.acceleo.maven:acceleo-compile deploy
