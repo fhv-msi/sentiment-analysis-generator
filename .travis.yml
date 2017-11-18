@@ -1,0 +1,8 @@
+jobs:
+  include:
+    - stage: prepare build
+      script: "cp .travis.settings.xml $HOME/.m2/settings.xml"
+    - stage: build generator
+      script: "mvn clean org.eclipse.acceleo:org.eclipse.acceleo.maven:acceleo-compile package"
+    - stage: deploy generator
+      script: "mvn org.eclipse.acceleo:org.eclipse.acceleo.maven:acceleo-compile deploy"
